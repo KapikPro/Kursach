@@ -3,9 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace example.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class Admin : Controller
     {
-        [Authorize(Roles ="Admin")]
+        
         public IActionResult Index()
         {
             return View();
