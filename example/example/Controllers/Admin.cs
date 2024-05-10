@@ -14,6 +14,8 @@ namespace example.Controllers
 
         public IActionResult Users()
         {
+            var ListUsers = new List<string>();
+
             return View();
         }
     }

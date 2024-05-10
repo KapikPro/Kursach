@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using example.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 
@@ -10,5 +11,6 @@ namespace example.Data
             : base(options)
         {
         }
+        public DbSet<Articles> Articles => Set<Articles>();
     }
 }
