@@ -1,5 +1,6 @@
 using example.Data;
 using example.Models;
+using example.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,6 +22,8 @@ namespace example
                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddTransient<ArticlesRepository>();
 
             var app = builder.Build();
 
