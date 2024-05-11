@@ -16,7 +16,7 @@ namespace example.Repositories
 
         public async Task<List<Articles>> GetArticlesAsync()
         {
-            return await _context.Articles.ToListAsync();
+            return await _context.Articles.Include(x=>x.AuthorId).ToListAsync();
         }
     }
 }
