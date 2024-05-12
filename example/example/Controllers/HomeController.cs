@@ -1,4 +1,5 @@
 using example.Models;
+using example.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -8,9 +9,12 @@ namespace example.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private ArticlesRepository _articlesRepository;
+
+        public HomeController(ILogger<HomeController> logger, ArticlesRepository articlesRepository)
         {
             _logger = logger;
+            _articlesRepository = articlesRepository;
         }
 
         public IActionResult Index()
@@ -22,9 +26,12 @@ namespace example.Controllers
         {
             return View();
         }
-        public IActionResult Articles()
+
+        public async Task<ActionResult> Articles()
         {
-            return View();
+            var ListArticles = await _articlesRepository.GetArticlesAsync();
+
+            return View(ListArticles);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
