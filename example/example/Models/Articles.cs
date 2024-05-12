@@ -17,6 +17,6 @@ namespace example.Models
 
         public User AuthorId {  get; set; }
 
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
     }
 }
