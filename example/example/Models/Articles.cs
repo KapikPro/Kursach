@@ -13,6 +13,8 @@ namespace example.Models
 
         public DateTime Date{ get; set; }
 
+        public string AuthorIdId {  get; set; }
+
         public User AuthorId {  get; set; }
 
         public bool IsActive { get; set; }

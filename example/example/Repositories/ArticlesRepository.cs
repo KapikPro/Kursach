@@ -18,5 +18,12 @@ namespace example.Repositories
         {
             return await _context.Articles.Include(x=>x.AuthorId).ToListAsync();
         }
+
+        public async Task<Articles> CreateArticlesAsync(Articles articles)
+        {
+            _context.Articles.Add(articles);
+            await _context.SaveChangesAsync();
+            return articles;
+        }
     }
 }

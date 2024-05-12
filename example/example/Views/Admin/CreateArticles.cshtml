@@ -2,14 +2,36 @@
     ViewData["Title"] = "Admin Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Admin</h1>
-    <ul>
-        <li>
-            <a href="/Admin/Users">Users</a>
-        </li>
-        <li>
-            <a href="/Admin/Articles">Articles</a>
-        </li>
-    </ul>
+
+<div class="row mb-3">
+    <script src="~/Data/ckeditor5/ckeditor.js"></script>
+    <div class="col-12">
+        @using (Html.BeginForm("CreateArticles", "Admin", FormMethod.Post))
+        {
+
+            <div>
+                <div class="page-title-box">
+                    <h5 class="page-title">Заголовок</h5>
+                </div>
+                <textarea style="width:70%; height:150px;" id="Title" name="Title"></textarea>
+            </div>
+            <div>
+                <div class="page-title-box">
+                    <h4 class="page-title">Статья</h4>
+                </div>
+                <textarea style="width:70%; height:150px; " id="Article" name="Article"></textarea>
+            </div>
+            <br />
+            <div>
+                <input type="submit" value="Отправить" class="btn btn-dark" />
+            </div>
+        }
+    </div>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+        ClassicEditor.create(document.querySelector('#Title'));
+        ClassicEditor.create(document.querySelector('#Article'));
+    });
+</script>
+

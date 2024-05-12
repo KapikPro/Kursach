@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using example.Models;
 using example.Repositories;
+using System.Security.Claims;
 
 namespace example.Controllers
 {
@@ -35,8 +36,19 @@ namespace example.Controllers
             return View(ListArticles);
         }
 
+        [HttpGet]
         public IActionResult CreateArticles()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> CreateArticles(Articles articles)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            articles.AuthorIdId = userId;
+            var result = await _articlesRepository.CreateArticlesAsync(articles);
+
             return View();
         }
     }
