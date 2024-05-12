@@ -34,5 +34,10 @@ namespace example.Controllers
 
             return View(ListArticles);
         }
+
+        public IActionResult CreateArticles()
+        {
+            return View();
+        }
     }
 }
