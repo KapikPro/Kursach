@@ -22,10 +22,6 @@ namespace example.Data
             .HasDefaultValueSql("now()");
 
             builder.Entity<Articles>()
-            .Property(x => x.Date)
-            .HasDefaultValueSql("now()");
-
-            builder.Entity<Articles>()
             .Property(x=>x.IsActive)
             .HasDefaultValue(true); 
         }

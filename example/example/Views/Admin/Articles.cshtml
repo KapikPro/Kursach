@@ -11,7 +11,7 @@
         <li>
             <span>@item.Title</span>
              <span>@item.Article</span>
-             <span>@item.Date.ToString("yyyy.MM.dd HH:mm")</span>
+              <span>@item.Date.AddHours(3).ToString("yyyy.MM.dd HH:mm")</span>
              <span>@item.AuthorId</span>
              <span>@item.IsActive</span>
         </li>
