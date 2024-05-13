@@ -1,7 +1,9 @@
 using example.Models;
 using example.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore;
 using System.Diagnostics;
+using System.Web;
 
 namespace example.Controllers
 {
@@ -34,10 +36,13 @@ namespace example.Controllers
             return View(ListArticles);
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [Route("Home/Article/{id?}")]
+        public async Task<ActionResult> Article(int? id)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var article = await _articlesRepository.GetArticleAsync(id);
+
+                return View(article);
         }
     }
 }
+

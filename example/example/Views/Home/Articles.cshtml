@@ -13,9 +13,10 @@
                     if (@item.IsActive == true)
                 {
                     <li>
-                        <span>@item.Title</span>
-                        <span>@item.Article</span>
-                        <span>@item.Date.ToString("yyyy.MM.dd HH:mm")</span>
+                        <a href="/Home/Article/@item.Id">@item.Title</a>
+                        <br />
+                            <a>@item.Date  </a>
+                            <br />
                     </li>
                 }
             </ul>
