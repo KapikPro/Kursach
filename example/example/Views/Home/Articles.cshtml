@@ -11,14 +11,14 @@
             <ul>
                 @foreach (var item in Model)
                     if (@item.IsActive == true)
-                {
-                    <li>
-                        <a href="/Home/Article/@item.Id">@item.Title</a>
-                        <br />
+                    {
+                        <li>
+                            <a class="text-black-50" href="/Home/Article/@item.Id"><strong>@item.Title</strong></a>
+                            <br />
                             <a>@item.Date  </a>
                             <br />
-                    </li>
-                }
+                        </li>
+                    }
             </ul>
         </div>
     </div>

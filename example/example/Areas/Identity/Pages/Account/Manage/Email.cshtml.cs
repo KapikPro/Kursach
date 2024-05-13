@@ -70,7 +70,7 @@ namespace example.Areas.Identity.Pages.Account.Manage
             /// </summary>
             [Required]
             [EmailAddress]
-            [Display(Name = "New email")]
+            [Display(Name = "Новая почта")]
             public string NewEmail { get; set; }
         }
 

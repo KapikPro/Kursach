@@ -19,7 +19,12 @@ namespace example.Repositories
         {
             return await _context.Articles.Include(x=>x.AuthorId).ToListAsync();
         }
-        
+
+        public async Task<List<Articles>> GetActiveArticlesAsync()
+        {
+            return await _context.Articles.Where(x => x.IsActive).ToListAsync();
+        }
+
         public async Task<Articles> GetArticleAsync(int? Id)
         {
             return await _context.Articles.SingleAsync(x=> x.Id == Id);

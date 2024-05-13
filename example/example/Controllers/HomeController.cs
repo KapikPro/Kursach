@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore;
 using System.Diagnostics;
 using System.Web;
+using Microsoft.AspNetCore.Authorization;
 
 namespace example.Controllers
 {
@@ -19,16 +20,15 @@ namespace example.Controllers
             _articlesRepository = articlesRepository;
         }
 
-        public IActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            return View();
+            var listArticles = await _articlesRepository.GetActiveArticlesAsync();
+            bool isAdmin = User.IsInRole("Administrator");
+            ViewBag.IsAdmin = isAdmin;
+            return View(listArticles);
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
+        [Authorize]
         public async Task<ActionResult> Articles()
         {
             var ListArticles = await _articlesRepository.GetArticlesAsync();
