@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using example.Models;
 using example.Repositories;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace example.Controllers
 {
@@ -11,10 +13,12 @@ namespace example.Controllers
     {
 
         private ArticlesRepository _articlesRepository;
+        private UserManager<User> _userManager;
 
-        public AdminController(ArticlesRepository articlesRepository)
+        public AdminController(ArticlesRepository articlesRepository, UserManager<User> userManager)
         {
             _articlesRepository = articlesRepository;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
@@ -22,11 +26,11 @@ namespace example.Controllers
             return View();
         }
 
-        public IActionResult Users()
+        public async Task<ActionResult> Users()
         {
-            var ListUsers = new List<string>();
+            var list = await _userManager.Users.ToListAsync();
 
-            return View(ListUsers);
+            return View(list);
         }
 
         public async Task<ActionResult> Articles()
