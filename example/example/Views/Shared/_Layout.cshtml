@@ -22,7 +22,7 @@
 <body class="loading" data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":false, "showRightSidebarOnStart": false}'>
     <!-- Begin page -->
     <div class="wrapper">
-        <!-- ========== Left Sidebar Start ========== -->
+        <!-- ========== левое меню ========== -->
         <div class="leftside-menu">
 
             <!-- LOGO -->
@@ -40,7 +40,7 @@
             </a>
 
             <div class="h-100" id="leftside-menu-container" data-simplebar>
-                <!--- Sidemenu -->
+                <!--- цетр левого меню -->
                 <h2 style="text-align:center">SOD</h2>
                 <ul class="side-nav">
 
@@ -68,36 +68,28 @@
                         </a>
                     </li>
                 </ul>
-                <!-- End Sidebar -->
+                <!-- Конец центра левого меню -->
 
                 <div class="clearfix"></div>
 
             </div>
            
-            <!-- Sidebar -left -->
+            <!-- конец левого меню -->
         </div>
-        <!-- Left Sidebar End -->
-        <!-- ============================================================== -->
-        <!-- Start Page Content here -->
-        <!-- ============================================================== -->
 
         <div class="content-page">
             <div class="content">
-                <!-- Topbar Start -->
+                <!-- Верхнее меню -->
                 <div class="navbar-custom">
+                    <!-- правый его кусок -->
                     <ul class="list-unstyled topbar-menu float-end mb-0">
                         <li class="dropdown notification-list d-lg-none">
-                            <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                             <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 <i class="dripicons-search noti-icon"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-animated dropdown-lg p-0">
-                                <form class="p-3">
-                                    <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
-                                </form>
-                            </div>
+                            </a> 
                         </li>
  
-
+                        <!-- настройки -->
                         <li class="notification-list">
                             <a class="nav-link end-bar-toggle" href="javascript: void(0);">
                                 <i class="dripicons-gear noti-icon"></i>
@@ -105,17 +97,11 @@
                         </li>
 
                         <partial name="_LoginPartial" />
-
+                        <!-- конец правого куска -->
                     </ul>
                     <button class="button-menu-mobile open-left">
                         <i class="mdi mdi-menu"></i>
                     </button>
-                    <div class="app-search dropdown d-none d-lg-block">
-                        <form>
-                            <div class="input-group">
-                            </div>
-                        </form>
-                        </div>
                     </div>
                 </div>
                 <!-- end Topbar -->
