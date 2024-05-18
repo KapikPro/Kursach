@@ -17,17 +17,6 @@ namespace example.Data
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<User>()
-            .Property(x => x.Date)
-            .HasDefaultValueSql("now()");
-
-            builder.Entity<Articles>()
-            .Property(x => x.Date)
-            .HasDefaultValueSql("now()");
-
-            builder.Entity<Articles>()
-            .Property(x=>x.IsActive)
-            .HasDefaultValue(true); 
         }
     }
 }

@@ -51,6 +51,8 @@ namespace example.Controllers
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             articles.AuthorIdId = userId;
+            articles.IsActive = true;
+            articles.Date = DateTime.UtcNow;
             var result = await _articlesRepository.CreateArticlesAsync(articles);
 
             return View();
